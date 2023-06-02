@@ -1,4 +1,4 @@
-package org.tnsif.collections;
+package org.tnsif.collections.list;
 import java.util.ArrayList;
 public class ArrayListDemo {
 
@@ -18,6 +18,7 @@ public class ArrayListDemo {
 		list1.add("Kavu");
 		list1.add("Arni");
 		System.out.println(list1);
+		
 	}
 
 }
