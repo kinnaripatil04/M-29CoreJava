@@ -10,7 +10,13 @@ public abstract class SavingAcc extends BankAcc{
 		this.isSalaried = isSalaried;
 	}
 	public void withdraw(float accBal) {
-		System.out.println("Account No: " + this.getAccNo() + " Account Name: " + this.getAccNm() + " Account Balance: " + (this.getAccBal()+ MINBAL));
+		if(accBal > MINBAL) {
+			System.out.println("Balance Before Withdrawal: "+this.getAccBal());
+			this.setAccBal(getAccBal()-accBal);
+			System.out.println("Account No: "+this.getAccNo()+", Account Name: "+this.getAccNm()+", Account Balance: "+this.getAccBal()+", Withdraw Amount:"+accBal);
+		} else {
+			System.out.println("Minimum balance required is:"+ MINBAL);
+		}
 	}
 	@Override
 	public String toString() {

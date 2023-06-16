@@ -8,7 +8,13 @@ public abstract class CurrentAcc extends BankAcc{
 		this.creditLimit = creditLimit;
 	}
 	public void withdraw(float accBal) {
-		System.out.println("Account No: " + this.getAccNo() + " Account Name: " + this.getAccNm() + " Account Balance: " + (this.getAccBal()+ creditLimit));
+		if(this.getAccBal() > creditLimit+accBal) {
+			System.out.println("Balance Before Withdrawal: "+this.getAccBal());
+			this.setAccBal(getAccBal()-(creditLimit+accBal));
+			System.out.println("Account No: "+this.getAccNo()+", Account Name: "+this.getAccNm()+", Account Balance: "+this.getAccBal()+", Withdraw Amount:"+accBal);
+		} else {
+			System.out.println("Minimum balance required is:"+(creditLimit+accBal));
+		}
 	}
 	@Override
 	public String toString() {
